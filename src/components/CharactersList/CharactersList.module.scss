@@ -1,0 +1,122 @@
+.characterListTitle {
+  font-size: 34px;
+  font-weight: 300;
+  color: #333333;
+  margin-bottom: 43px;
+}
+
+.characterCard {
+  max-width: 432.5px;
+}
+
+.characterCardWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(432.5px, 1fr));
+  grid-gap: 30px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 769px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 2101px) and (max-width: 1600px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (min-width: 2590px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.characterCardWrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.loadMoreButton {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.loadMoreButton:hover {
+  background-color: #1976d2;
+}
+
+.characterName {
+  margin-top: 16px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+  line-height: 28px;
+}
+
+.characterPlanet {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  line-height: 28px;
+}
+
+.characterInfo {
+  margin-top: 13px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #757575;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .characterInfo {
+    display: none;
+  }
+
+  .characterCardWrapper {
+    grid-gap: 46px;
+  }
+
+  .characterCardWrapper img {
+    max-width: 115px;
+    height: 130px;
+    object-fit: cover;
+    grid-area: img;
+  }
+
+  .characterName {
+    grid-area: charName;
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    line-height: 28px;
+  }
+
+  .characterPlanet {
+    grid-area: planet;
+    font-size: 15px;
+  }
+
+  .characterCard {
+    display: grid;
+    grid-template-areas:
+      'img charName'
+      'img planet'
+      'img auto'
+      'img auto';
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 0 12px;
+  }
+}

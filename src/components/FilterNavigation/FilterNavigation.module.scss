@@ -1,0 +1,194 @@
+.filterNavigation {
+  margin: 50px 0;
+  padding: 26px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filterNavigation::before {
+  content: '';
+  position: absolute;
+  left: -50px;
+  right: -50px;
+  top: 0;
+  height: 1px;
+  background: #e6e6e6;
+}
+
+.filterNavigation::after {
+  content: '';
+  position: absolute;
+  left: -50px;
+  right: -50px;
+  bottom: 0;
+  height: 1px;
+  background: #e6e6e6;
+}
+
+.filterLabel {
+  color: #666666;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 12px;
+}
+
+.rotate180 {
+  transform: rotate(-180deg);
+}
+
+.dropdownButton {
+  background-color: transparent;
+  color: #002b56;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  min-width: 190px;
+  border-bottom: solid 1px #c8c8c8;
+  padding: 7px 0;
+}
+
+.arrowDown {
+  margin-left: auto;
+  width: 9px;
+  color: #969696;
+  transition: transform 0.3s ease;
+}
+
+.selectedPlanet {
+  margin-right: 5px;
+  background: #666666;
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.removePlanet {
+  vertical-align: text-bottom;
+  width: 8px;
+  margin-left: 5px;
+  cursor: pointer;
+  color: #000000;
+}
+
+.clearButton {
+  background-color: transparent;
+  color: #c8c8c8;
+  padding: 10px 40px;
+  font-size: 13.3px;
+  font-weight: 400;
+  border: 1px solid #c8c8c8;
+  cursor: pointer;
+  margin-left: auto;
+  transition: 0.3s ease;
+}
+
+.clearButton:hover {
+  border-color: #c8c8c8;
+  box-shadow: 0 0 10px #c8c8c8;
+}
+
+.dropdownWrapper {
+  position: relative;
+  display: inline-block;
+  min-height: 37px;
+}
+
+.dropdownContent {
+  display: flex;
+  position: absolute;
+  background-color: #fff;
+  min-width: 190px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 10px;
+  top: 100%;
+  left: 0;
+}
+
+.dropdownPlanetsName {
+  background-color: #fff;
+  margin: 2px 0;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.dropdownLabel {
+  display: inline-flex;
+  cursor: pointer;
+
+  input {
+    visibility: hidden;
+    position: absolute;
+  }
+
+  input:not(:checked) ~ .dropdownIcon svg {
+    opacity: 0;
+  }
+
+  &.scale {
+    input:not(:checked) ~ .dropdownIcon svg {
+      transform: scale(2);
+    }
+  }
+  svg {
+    fill: #002b56;
+  }
+
+  input:checked ~ .dropdownIcon {
+    border-color: #002b56;
+  }
+
+  &:hover {
+    .dropdownIcon {
+      border-color: #002b56;
+      box-shadow: 0 0 10px #002b56;
+    }
+  }
+}
+
+.dropdownIcon {
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #002b56;
+  border-radius: 0.25rem;
+  transition: 0.3s ease;
+  margin-right: 5px;
+
+  svg {
+    transition: 0.3s ease;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .clearButton {
+    display: none;
+  }
+
+  .dropdownButton {
+    flex-flow: wrap;
+    min-width: 264px;
+  }
+
+  .selectedPlanet {
+    margin: 3px;
+    display: flex;
+  }
+
+  .removePlanet {
+    margin-left: auto;
+  }
+
+  .filterLabel {
+    min-width: 60px;
+  }
+
+  .dropdownContent {
+    min-width: 264px;
+  }
+}
